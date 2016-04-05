@@ -1,0 +1,16 @@
+<!-- This template is for the Administrator to remove users from the to the database -->
+<template name="Admin">
+    <h2>Users:</h2>
+    <section>
+    </section>
+    <article>
+        {{#each allUsers}}
+            <ul id="entries">
+                <li id="entry">Username: {{username}}<br><br>
+                {{#if isNotAdmin username}}
+                <button class="Delete" name="del" id="del" value={{username}}>Delete</button>
+                {{/if}}
+                    </li> </ul>
+        {{/each}}
+    </article>
+</template>

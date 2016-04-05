@@ -1,0 +1,41 @@
+<!-- This template is for the settings page. The user can choose to either use the regular theme
+     or the dark theme, and also can choose to have the form autocomplete on or not (this is on by
+     default). -->
+<template name="Settings">
+    <h2>Settings</h2>
+
+    <section>
+
+    </section>
+    <form id="settings" class="settings">
+        <table>
+            <tr>
+                <td>
+                    Use Dark Theme:
+                </td>
+                <td>
+                    <div class="slideThree">
+                        <input type="checkbox" value="Yes" id="slidetwo" name="darktheme"/>
+                        <label for="slidetwo"></label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Form Auto Complete:
+                </td>
+                <td>
+                    <div class="slideThree">
+                        <input type="checkbox" value="Yes" id="slideThree" name="autocomplete" checked/>
+                        <label for="slideThree"></label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" name="save" id="update" value="Update"/>
+    </form>
+
+    <br>
+    <br>
+</template>

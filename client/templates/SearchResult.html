@@ -1,0 +1,124 @@
+<!-- This template is for the search results which are formatted and shown on the search template.
+     each result allows the nurse to create a report based on the patient record returned, or fix
+     any inaccuracies to the patient record.
+     The Primary Care Giver can view the patient record for the patient related to them. the PCG
+     can't perform any actions except for just viewing the record. -->
+<template name="SearchResult">
+    <script>
+        document.body.style.background = "url('/img/heart.jpg') no-repeat center center fixed";
+    </script>
+
+    {{#if result}}
+        {{#if isInRole 'Nurse'}}
+        <h1 id="result">{{countResults}} Result(s) for: "{{searchFor}}" </h1>
+        {{/if}}
+
+        {{#each result}}
+
+        <br>
+        <table class="Search" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr>
+                <th colspan="2">
+                    <center>Patient Record - {{name}}</center>
+                </th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Patient ID:
+                </td>
+                <td>
+                    {{_id}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    {{name}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Age:
+                </td>
+                <td>
+                    {{age}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender:
+                </td>
+                <td>
+                   {{gender}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Room Number:
+                </td>
+                <td>
+                    {{roomNo}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Move In Date:
+                </td>
+                <td>
+                    {{moveInDate}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Personal Care Giver:
+                </td>
+
+                <td>
+
+                {{pcgName}}
+
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    Medications:
+                </td>
+                <td>
+                    {{meds}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Diet Restrictions:
+                </td>
+                <td>
+                    {{diet}}
+                </td>
+            </tr>
+            {{#if isInRole 'Nurse'}}
+            <tr>
+                <td colspan="2">
+                    <form class="SRForm">
+                    <button id="Edit" name="Edit" value={{_id}}>Edit</button>
+                    <button id="Report" name="Report" value={{_id}}>Post Report</button>
+                    </form>
+                </td>
+            </tr>
+            {{/if}}
+            </tbody>
+        </table>
+        <br><br>
+    {{/each}}
+    {{/if}}
+</template>

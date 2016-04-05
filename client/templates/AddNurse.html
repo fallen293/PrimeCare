@@ -1,0 +1,24 @@
+<!-- This template is for the Administrator to add Nurses to the database -->
+<template name="AddNurse">
+    <h2>Add Nurse: </h2>
+
+    <section>
+    </section>
+
+    <article>
+        <form class="addNurse" autocomplete="off">
+        Add a Nurse to the Database:<br><br>
+        Username:<br>
+            <input type="text" id="_id" name="_id" size="50" autocomplete="off" value={{uName}}><br><br>
+            Password:<br>
+            <input type="password" id="passWord" name="passWord" size="50" autocomplete="off"><br><br>
+        Name:<br>
+            <input type="text" id="name" name="name" size="50" autocomplete="off"><br><br>
+        Title:<br>
+            <input type="text" id="title" name="title" size="50" autocomplete="off"><br><br>
+
+        &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="reset" value="Reset"><input type="submit" value="Submit">
+        </form>
+        <br><br>
+    </article>
+</template>

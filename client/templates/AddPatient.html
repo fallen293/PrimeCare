@@ -1,0 +1,37 @@
+<!-- This template is for the Administrator to add Patients to the database -->
+<template name="AddPatient">
+    <h2>Add Patient: </h2>
+
+    <section>
+    </section>
+
+    <article>
+        <form class="addPatient" autocomplete="off">
+            Add a Patient to the Database:<br><br>
+            Patient ID: <br>
+            <input type="text" id="_id" name="_id" size="50" autocomplete="off" value={{patId}} ><br><br>
+            PCG:<br>
+            <input type="text" id="pcgID" name="pcgID" size="50" value={{pcgid}} autocomplete="new-password"><br><br>
+            Name:<br>
+            <input type="text" id="name" name="name" size="50" autocomplete="off"><br><br>
+            Age:<br>
+            <input type="text" id="age" name="age" size="50" autocomplete="off"><br><br>
+            Gender:<br>
+            <select id="gender" name="gender">
+            <option value="" selected></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            </select><br><br>
+            Room Number:<br>
+            <input type="text" id="roomNo" name="roomNo" size="50" autocomplete="off"><br><br>
+            Move In Date:<br>
+            <input type="date" id="moveInDate" name="moveInDate" size="50" autocomplete="off"><br><br>
+            Medications:<br>
+            <input type="text" id="meds" name="meds" size="50" autocomplete="off"><br><br>
+           Diet:<br>
+            <input type="text" id="diet" name="diet" size="50" autocomplete="off"><br><br>
+            <input type="reset" value="Reset"><input type="submit" value="Submit">
+        </form>
+        <br><br>
+    </article>
+</template>

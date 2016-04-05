@@ -1,0 +1,28 @@
+<!-- This template is for the Administrator to add Primary Care Givers to the database -->
+<template name="AddPCG">
+    <h2>Add Primary Care Giver: </h2>
+
+    <section>
+    </section>
+
+    <article>
+        <form class="addPCG" id="addPCG" autocomplete="off">
+            Add a Primary Care Giver to the Database:<br><br>
+            Username:<br>
+            <input type="text" id="_id" name="_id" size="50" autocomplete="off" value="{{uName}}"><br><br>
+            Password:<br>
+            <input type="password" id="passWord" name="passWord" size="50" autocomplete="off"><br><br>
+            Name:<br>
+            <input type="text" id="name" name="name" size="50" autocomplete="off"><br><br>
+            Relationship:<br>
+            <input type="text" id="relationship" name="relationship" size="50" autocomplete="off"><br><br>
+            Address:<br>
+            <input type="text" id="address" name="address" size="50" autocomplete="off"><br><br>
+            Phone Number:<br>
+            <input type="text" id="phoneNumber" name="phoneNumber" size="50" autocomplete="off"><br><br>
+
+            &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<input type="reset" value="Reset"><input type="submit" value="Submit">
+        </form>
+        <br><br>
+    </article>
+</template>

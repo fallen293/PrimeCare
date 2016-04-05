@@ -1,0 +1,23 @@
+<!-- This template is for the layut of the overall website. There is a check if the user is logged
+      in, and if not, then the login screen is shown. Once logged in, then home page is shown on
+      on the screen (nav, main, footer) until the user logs out.-->
+<template name="Layout">
+    <body class="loginBackground">
+    <div id="wrapper">
+        {{#if currentUser}}
+      {{> Navigation}}
+
+        <main class='clearBoth'>
+        {{> yield}}
+
+
+        </main>
+
+        {{>Footer}}
+       {{else}}
+            {{>Login}}
+        {{/if}}
+
+    </div>
+    </body>
+</template>

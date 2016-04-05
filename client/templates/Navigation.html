@@ -1,0 +1,39 @@
+<!-- This template is for the navigation. Depending on the user role, different options are shown
+     on the screen. There is also a greeting on the page depending on the role as well. -->
+<template name="Navigation">
+    <div id="preloader">
+        <img src="/img/PrimeCare_side.png" width="1" height="1" />
+    </div>
+    <header>
+        <img src="/img/PrimeCare_side.png" alt="PrimeCare">
+        <h3 class="right">{{#if isInRole 'Nurse'}}Nurse{{/if}}
+                            {{#if isInRole 'Primary Care Giver'}}Primary Care Giver{{/if}}
+                            {{#if isInRole 'Admin'}}Administrator{{/if}}
+            Portal
+            {{#if isInRole 'Nurse, Primary Care Giver'}} <br><br>Welcome, {{usersName}}{{/if}}</h3>
+    </header>
+    <nav class="nav">
+        <ul>
+            <li><a href="{{pathFor route='Home'}}" id="Home">Home</a></li>
+            {{#if isInRole 'Admin'}}
+                <li><a href="{{pathFor route='AddPCG'}}" id="AddPCG">PCG</a></li>
+                <li><a href="{{pathFor route='AddNurse'}}" id="AddNurse">Nurse</a></li>
+                <li><a href="{{pathFor route='AddPatient'}}" id="AddPatient">Patient</a></li>
+            {{/if}}
+            {{#if isInRole 'Nurse'}}
+                <li><a href="{{pathFor route='Search'}}" id="Search">Search</a></li>
+                <li><a href="{{pathFor route='SubmitUpdate'}}" id="SubmitUpdate">Submit Update</a></li>
+            {{/if}}
+            {{#if isInRole 'Primary Care Giver'}}
+                <li><a  href="{{pathFor route='SearchResult'}}" id="PatientInfo" >Patient Info</a></li>
+                <li><a href="{{pathFor route='Contact'}}" id="Contact">Contact</a></li>
+            {{/if}}
+            <li class="right"><a href="#" id="Settings.jsp">Control Panel</a>
+                <ul>
+                    <li><a href="Settings">Settings</a></li>
+                    <li><a href="{{pathFor route='Home'}}" class="logout" id="logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</template>

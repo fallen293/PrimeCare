@@ -1,0 +1,23 @@
+<!-- This template is for the home page to show all of the reports contained in the database
+     that the user has permission to view. Contains the anchor link to the entries on the navList -->
+<template name="entries">
+    {{#each report}}
+        <ul id='entries'>
+            <li id='entry'>
+                <a id="{{_id}}"></a>
+                {{#if isInRole 'Nurse'}}
+                {{#if unreadTotal}}
+                <h4><span id="unread" style='color: red'>{{unreadTotal}}</span> unread comment(s)</h4>
+                {{/if}}
+                {{else}}
+                {{/if}}
+                <h3>{{date}}</h3>
+                <strong>Nurse: </strong>{{nrsID}} <br><br>
+                <strong>Urgency: </strong>{{urgency}} <br><br>
+                <div id='form'> {{form}}</div><br>
+                <a  class="more" href="Report/{{_id}}">More</a>
+            </li>
+        </ul>
+    {{/each}}
+</template>
+

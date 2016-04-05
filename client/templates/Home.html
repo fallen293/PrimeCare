@@ -1,0 +1,34 @@
+<!-- This template is the home page view the users see after they login. -->
+<template name="Home">
+    {{#if isInRole 'Admin'}}
+        {{>Admin}}
+    {{/if}}
+    {{#if isInRole 'Nurse'}}
+    <h3>{{>unread}}</h3>
+        {{else}}
+        <br><br><br>
+    {{/if}}
+    {{#if isInRole 'Nurse, Primary Care Giver'}}
+    <script>
+
+        document.body.style.background = "url('/img/chair.jpg') no-repeat center center fixed";
+
+
+    </script>
+
+
+    <section>
+        <div id="dateNav">
+            <h3>Jump To...</h3>
+            <ul>
+                {{>navList}}
+            </ul>
+        </div>
+    </section>
+
+    <article>
+            {{>entries}}
+
+    </article>
+    {{/if}}
+</template>

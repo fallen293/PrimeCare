@@ -1,0 +1,40 @@
+<!-- ROUTER TEST SECTION -->
+
+
+
+
+
+
+
+<!-- Main layout -->
+
+
+<template name="role">
+    {{role}}
+</template>
+
+
+
+<template name="user">
+    {{#each users}}
+        <li>{{_id}}</li>
+    {{/each}}
+</template>
+
+<template name="pcg">
+    {{#each pcgs}}
+        <li>{{name}}</li>
+    {{/each}}
+
+    {{#each patient}}
+        <li>{{name}}</li>
+    {{/each}}
+</template>
+
+
+<template name="nurse">
+    {{#each nurses}}
+        <li>{{name}}</li>
+    {{/each}}
+</template>
+

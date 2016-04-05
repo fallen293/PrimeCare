@@ -1,0 +1,21 @@
+<!-- This template is actually a combination of two templates. For simplicity, both templates are
+     contained here. The first template only contains the anchor links to the different reports on
+     the main page. The second template (navListReport) contains the actual links to the other reports
+     so you can switch between them on the report page. -->
+<template name="navList">
+    {{#each navEntry}}
+        <li class="dateList" id={{_id}}><a href="#{{_id}}">{{dateformatted}}
+        {{#if isInRole 'Nurse'}}{{#if unreadTotal}}
+                (<span id="unread" style='color: red'>{{unreadTotal}}</span>)
+            {{/if}}{{/if}}</a></li>
+    {{/each}}
+</template>
+
+<template name="navListReport">
+    {{#each navEntry}}
+        <li class="dateList" id={{_id}}><a id={{_id}} href="/Report/{{_id}}">{{dateformatted}}
+            {{#if isInRole 'Nurse'}}{{#if unreadTotal}}
+            (<span id="unread" style='color: red'>{{unreadTotal}}</span>)
+        {{/if}}{{/if}}</a></li>
+    {{/each}}
+</template>

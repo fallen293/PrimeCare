@@ -1,0 +1,22 @@
+<!-- This template is for the footer part of the website. Entries change depending on user -->
+<template name="Footer">
+    <footer>
+        <p>&copy; 2016 PrimeCare
+        <a href="{{pathFor route='Home'}}">Home</a> |
+        {{#if isInRole 'Admin'}}
+            <a href="{{pathFor route='AddPCG'}}">PCG</a> |
+            <a href="{{pathFor route='AddNurse'}}" >Nurse</a> |
+            <a href="{{pathFor route='AddPatient'}}">Patient</a> |
+        {{/if}}
+        {{#if isInRole 'Nurse'}}
+            <a href="{{pathFor route='Search'}}">Search</a> |
+            <a href="{{pathFor route='SubmitUpdate'}}">Submit Update</a> |
+        {{/if}}
+        {{#if isInRole 'Primary Care Giver'}}
+            <a  href="{{pathFor route='SearchResult'}}">Patient Info</a> |
+            <a href="{{pathFor route='Contact'}}">Contact</a> |
+        {{/if}}
+            <a href="{{pathFor route='Home'}}" class="logout">Logout</a>
+        </p>
+    </footer>
+</template>

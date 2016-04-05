@@ -1,0 +1,35 @@
+<!-- This template is for the patient information after a nurse has searched for one and wants to
+     edit the patient record in order to correct any inaccuracies. -->
+<template name="PatientInfo">
+    <script>
+        document.body.style.background = "url('/img/heart.jpg') no-repeat center center fixed";
+    </script>
+    {{#each result}}
+        <h2>Patient Info - {{name}}</h2>
+
+        <form id="patientForm" class="patientForm">
+            Name:<br>
+            <input type="text" name="name" id="name" value={{name}} property="name" /><br><br>
+            Age:<br>
+            <input type="text" name="age" id="age"  value={{age}} property="age" /><br><br>
+            Gender:<br>
+            <input type="text" name="sex" id="sex"  value={{gender}} property="gender" /><br><br>
+            Room Number:<br>
+            <input type="text" name="room" id="room" value={{roomNo}} property="roomNo" /><br><br>
+            Move in date:<br>
+            <input type="date" name="moveDate" id="moveDate" value={{moveInDate}} property="moveInDate" /><br><br>
+            Primary Caregiver:<br>
+
+            <input type="text" name="PCG" id="PCG" value={{pcgName}} property="pcg" /><br><br>
+
+            Medications:<br>
+            <input type="text" name="medication" id="medication" maxlength="200" value={{meds}} property="meds" /><br><br>
+            Diet Restrictions:<br>
+            <input type="text" name="diet" id="diet" maxlength="200" value={{diet}} property="diet" /><br><br>
+            <input type="hidden" name="PatID" id="PatID" value="{{_id}}" property="id" />
+            <button id="reset" name="reset" onclick="history.back()" value="reset">Reset</button>
+            <input type="submit" name="submit" id="sub"  value="Submit">
+        </form>
+        {{/each}}
+    <br>
+</template>

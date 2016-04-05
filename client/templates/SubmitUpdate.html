@@ -1,0 +1,41 @@
+<!-- The SubmitUpdate template is the form a nurse can use to submit a report on a patient.
+     This template also contains cookies which remember the current input into the fields until
+     either the session variable is removed, the session is ended, or the form is submitted. -->
+<template name="SubmitUpdate">
+    <script>
+        document.body.style.background = "url('/img/stethoscope.jpg') no-repeat center center fixed";
+    </script>
+    <h2>Patient Status</h2>
+    <article>
+
+
+        <form id="nurseInput" class="nurseInput">
+            <!--{{#if patExists }}-->
+                <!--<h4>Patient status: {{name}}</h4>-->
+            <!--{{else}}-->
+            <!--<h4>Patient status: </h4>-->
+                <!--{{/if}}-->
+            {{#if patExists}}
+                Patient ID: <input type="text" id="patientID" name="patientID" placeholder="#########" onblur="storeValues(nurseInput)" value={{patId}}>
+                <br>
+                <input type="hidden" name="nurseID" id="nurseID" value={{session.username}}>
+            {{else}}
+
+            Patient ID: <input type="text" id="patientID" name="patientID" placeholder="#########" value="">
+            {{/if}}
+                    <br>
+            <input type="hidden" name="nurseID" id="nurseID" value={{session.username}}>
+            <br>
+            <textarea rows="20" cols="105" id="formText" name="formText" form="nurseInput" placeholder="Enter patient information here..." value=""></textarea>
+            <br>
+            <p>Urgency:</p>
+            <input type="radio" id="urgency" name="urgency" value="high">
+            High<br>
+            <input type="radio" id="urgency" name="urgency" value="med">
+            Med<br>
+            <input type="radio" id="urgency" name="urgency" value="low">
+            Low<br><br>
+            <input type="submit" name="Submit" value="Submit">
+        </form>
+    </article>
+</template>

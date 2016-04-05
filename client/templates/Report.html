@@ -1,0 +1,66 @@
+<!-- This template is for each individual report. Depending on the user role, adding a comment
+     to the report will be shown if the user is a Primary Care Giver.
+     The comment template is also included in this file since it is related to comments for that
+     particular report. -->
+<template name="Report">
+    <h3>Patient Report: </h3>
+
+    <section>
+
+        <div id="dateNav">
+            <h3>Jump To...</h3>
+            <ul>
+                {{>navListReport}}
+            </ul>
+        </div>
+
+    </section>
+
+    <article>
+
+        <ul id='report'>
+            <li>
+                            <strong>Date: </strong> {{date}}
+                            <br><strong>Nurse: </strong>{{nrsID}}
+                            <br><strong>Urgency Level: </strong>{{urgency}}
+                            <br><br>{{form}}
+            </li>
+        </ul>
+
+        {{#if isInRole 'Primary Care Giver'}}
+        <p class="toggle" id='toggle'><u>Click here to post a reply to this report</u></p>
+        {{/if}}
+        <ul id="report">
+            <div class="hiddenpost" id='hidden'>
+                <li>
+                    <form id="commentSubmission" class="commentSubmission">
+                        <input type='hidden' id='reportNo' name='repNo' value={{_id}}>
+                        <input type='hidden' id='pcgID' name='pcgID' value={{pcgID}}>
+                        Subject:<br>
+                        <input type="text" id="subj" name="subj" placeholder="Enter subject here..." style="width: 525px;" value="">
+                        <br><br>
+                        Message:<br>
+                        <textarea rows="15" cols="80" id="message" name="message" placeholder="Enter message here..."></textarea><br><br>
+                        <button type="reset" value="Reset">Reset</button> <button type='submit' id='post' name='post' value='post'>Post</button>
+                    </form>
+                </li>
+            </div>
+        </ul>
+<ul id="report">
+        {{>comments}}
+</ul>
+</article>
+
+</template>
+
+<template name="comments">
+    <p class="toggle"><strong>{{commentTotal}} Comments</strong></p>
+    {{#each comms}}
+        <li>
+            <strong>Date: </strong>{{date}}<br>
+            <strong>Subject: </strong>{{subject}}<br><br>
+            <strong>Message: </strong>{{message}}
+        </li>
+
+    {{/each}}
+</template>

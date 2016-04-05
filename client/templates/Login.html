@@ -1,0 +1,54 @@
+<!-- This template is for the login page. Similar to the first phase, this has a popup div for user
+     messages which will convey if there are any issues that need to be corrected with input. This
+     page only appears if the user needs to log in.-->
+<template name="Login">
+    <body class="loginBackground">
+    <script>
+        var message = null;
+
+        //Show Div when forgot password is clicked and change message inside
+        function showDiv(){
+            $("#msg").html("<br><br><br><br><br>Please contact technical help for assistance");
+            $("#hide").show();
+            $("#hide").delay(3500).fadeOut("slow");
+        }
+
+    </script>
+    <div id="wrapper">
+    <main class='clearBoth'>
+            <div id="LoginDiv"><center>
+
+                <br> <img src="/img/PrimeCare_side.png" alt="PrimeCare">
+
+                <form>
+                Username: <input type="text" name="loginUser"  placeholder="username">
+                <br><br>
+                Password: <input  type="password" name="loginPassword" placeholder="********">
+                <br>
+                <br>
+                <input type="submit" value='Login'><br><br>
+                </form>
+                <!--
+                    For Security purposes, the password must be reset by the IT Department
+                -->
+                <a href="javascript:void(0);" onclick="showDiv();">Forgot Password</a>
+                <!--
+                    Message box is hidden by default and faded in and out if there is a message.
+                -->
+                <div class="message_cont" id="hide"><div id="msg"></div></div>
+            </center>
+                <script>
+                    $(document).ready(function(){
+                        $("#hide").delay(3500).fadeOut("slow");
+                    });
+
+                    $(document).ready(function(){
+                        $("#hide").hide();
+                    });
+
+                </script>
+            </div>
+        </main>
+    </div>
+    </body>
+</template>
